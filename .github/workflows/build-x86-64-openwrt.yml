@@ -236,7 +236,7 @@ jobs:
       if: steps.compile.conclusion == 'success' && github.event.inputs.release == 'true'
       uses: ncipollo/release-action@main
       with:
-        name: ${{ env.DATE }} for ${{ env.DEVICE_TARGET }}
+        name: ${{ env.DATE }} for ${{ env.DEVICE_TARGET }} mini
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.RELEASE_TAG }}
