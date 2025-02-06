@@ -236,14 +236,14 @@ jobs:
       if: steps.compile.conclusion == 'success' && github.event.inputs.release == 'true'
       uses: ncipollo/release-action@main
       with:
-        name: ${{ env.DATE }} for ${{ env.DEVICE_TARGET }}
+        name: ${{ env.DATE }} for ${{ env.RELEASE_TAG }}
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.RELEASE_TAG }}
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
-          **This is ${{ env.SOURCE_REPO }} firmware for ${{ env.DEVICE_TARGET }}**
+          **This is ${{ env.SOURCE_REPO }} firmware for ${{ env.RELEASE_TAG }}**
           ### 📒 固件信息
           - 💻 平台架构: ${{ env.DEVICE_TARGET }}
           - ⚽ 固件源码: ${{ env.REPO_URL }}
